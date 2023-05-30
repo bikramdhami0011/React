@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Aleart() {
+export default function Aleart(props) {
     return (
-        <div>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+         props.alert && <div>
+          <div class={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+                <strong>{props.alert.type}</strong> :{props.alert.msg}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         </div>

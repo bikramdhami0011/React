@@ -4,30 +4,35 @@ export default function TextForm(props) {
   const upchange=()=>{
         const newtext=text.toUpperCase();
         setText(newtext)
+        props.alerts('Uppercase change','success')
   }
   const lwchange=()=>{
     const newtext=text.toLowerCase();
     setText(newtext)
+    props.alerts('Lowercase change','success')
  }
  const cleartext=()=>{
   
   setText('')
+  props.alerts('clear the text','success')
 }
 const copytext=()=>{
   var text = document.getElementById('mybox');
   text.select();
   navigator.clipboard.writeText(text.value)
+  props.alerts('copy to clipboard','success')
 }
 
 const removeEspace=()=>{
   const newtext=text.split(/[ ]+/)
   setText(newtext.join(' '))
+  props.alerts('unnecessary space are removed','success')
 }
   const change=(event)=>{
     setText(event.target.value);
     console.log(event.target.value);
   }
-  const [text,setText] = useState('hello bikram')
+  const [text,setText] = useState('LOVELY ')
   return (
   <>
 
@@ -45,7 +50,7 @@ const removeEspace=()=>{
         </div>
     </div>
     <div className="container my-3  " style={{color:props.mode==='light'?'black':'white'}}>
-     <p>{text.split(" ").length}word and{text.length}</p>
+     <p>{text.split(" ").length-1}word and{text.length}character</p>
      {/* split is not working here so result is not obtained accurately */}
 
      <p> {0.008*text.split(" ").length} minutes time to read</p>
