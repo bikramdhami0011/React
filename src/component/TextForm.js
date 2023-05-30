@@ -51,7 +51,7 @@ const removeEspace=()=>{
         </div>
     </div>
     <div className="container my-3  " style={{color:props.mode==='light'?'black':'white'}}>
-     <p>{text.split(" ").filter((element)=>{return element.length}).length}word and{text.length}character</p>
+     <p>{text.split(/\s+/).filter((element)=>{return element.length}).length}word and{text.length}character</p>
      {/* split is not working here so result is not obtained accurately */}
 
      <p> {0.008*text.split(" ").length} minutes time to read</p>
