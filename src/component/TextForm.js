@@ -17,10 +17,10 @@ export default function TextForm(props) {
   props.alerts('clear the text','success')
 }
 const copytext=()=>{
-  var text = document.getElementById('mybox');
-  text.select();
-  navigator.clipboard.writeText(text.value)
-  document.getSelection().removeAllRanges()
+  // var text = document.getElementById('mybox');
+  // text.select();
+  navigator.clipboard.writeText(text)
+  // document.getSelection().removeAllRanges()
   props.alerts('copy to clipboard','success')
 }
 
