@@ -6,21 +6,21 @@ export default function Navbar(props) {
   return (
     <div>
       <nav className={`navbar navbar-expand-lg navbar-${props.mode}  bg-${props.mode}`}>
-        <div className="container-fluid" id="navbarNavDropdown">
-          <a className="navbar-brand" href="/" id="navbarNavDropdown">BLS</a>
+        <div className="container-fluid"   >
+          <a className="navbar-brand" href="/"   >BLS</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="/navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <div className="collapse navbar-collapse"  >
             <ul className="navbar-nav">
-              <li className="nav-item" id="navbarNavDropdown">
-                <NavLink className="nav-link  " to="/" id="navbarNavDropdown">Home</NavLink>
+              <li className="nav-item"   >
+                <NavLink className="nav-link  " to="/"   >Home</NavLink>
               </li>
-              <li className="nav-item" id="navbarNavDropdown">
-                <NavLink className="nav-link" to="/about" id="navbarNavDropdown">About Us</NavLink>
+              <li className="nav-item"   >
+                <NavLink className="nav-link" to="/about"   >About Us</NavLink>
               </li>
-              <li className="nav-item" id="navbarNavDropdown">
-                <NavLink className="nav-link" to="/Blog" id="navbarNavDropdown">blog</NavLink>
+              <li className="nav-item"   >
+                <NavLink className="nav-link" to="/Blog"   >blog</NavLink>
               </li>
             </ul>
           </div>
