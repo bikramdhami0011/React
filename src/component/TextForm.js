@@ -20,6 +20,7 @@ const copytext=()=>{
   var text = document.getElementById('mybox');
   text.select();
   navigator.clipboard.writeText(text.value)
+  document.getSelection().removeAllRanges()
   props.alerts('copy to clipboard','success')
 }
 
@@ -50,7 +51,7 @@ const removeEspace=()=>{
         </div>
     </div>
     <div className="container my-3  " style={{color:props.mode==='light'?'black':'white'}}>
-     <p>{text.split(" ").length-1}word and{text.length}character</p>
+     <p>{text.split(" ").filter((element)=>{return element.length}).length}word and{text.length}character</p>
      {/* split is not working here so result is not obtained accurately */}
 
      <p> {0.008*text.split(" ").length} minutes time to read</p>

@@ -22,15 +22,22 @@ function App() {
       setAlert(null)
     },2000);
   }
-  
-  const Mode = () => {
+  const bgremove=()=>{
+    document.body.classList.remove('bg-primary')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-warning')
+  }
+  const Mode = (cls) => {
+    console.log(cls)
+    bgremove()
+    document.body.classList.add('bg-'+cls)
     if (dMode === 'light') {
       setDMode('dark');
-      showAlert("darkmode is on ","success")
+      showAlert("mode is on ",cls)
       document.body.style.backgroundColor = 'grey'
     } else {
       setDMode('light');
-      showAlert("lightmode is on ","success")
+      showAlert("mode is on ",cls)
       document.body.style.backgroundColor = 'white'
     }
   }
@@ -40,10 +47,10 @@ function App() {
       <Aleart alert={alert} ></Aleart>
      
          <Routes>
-        <Route path='/' element={<TextForm mode={dMode} alerts={showAlert}></TextForm>}/>
+        <Route path='/' element={<TextForm mode={dMode} alerts={showAlert} head='wordcounter-character counter' ></TextForm>}/>
         </Routes>
         <Routes>
-        <Route exact path='/about' element={ <About />}/>
+        <Route exact path='/about' element={ <About mode={dMode}/>}/>
         </Routes>
         <Routes>
         <Route exact path='/Blog' element={ <Blog />}/>

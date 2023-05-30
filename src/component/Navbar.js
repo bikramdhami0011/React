@@ -25,10 +25,23 @@ export default function Navbar(props) {
             </ul>
           </div>
         </div>
-        <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'} my-2 mx-3`}>
-          <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggles} />
-          <label className="form-check-label" htmlFor="flexSwitchCheckDefault " >{props.mode==='light'?'Enable DarkMode':'Enable LightMode'}</label>
+        <div className="flex-display">
+          <button className="bg-primary rounded my-2 " style={{height:'30px'
+        , width:'40px'}} onClick={()=>{props.toggles('primary')}} ></button>
         </div>
+        <div className="flex-display">
+          <button className="bg-success rounded my-2 " style={{height:'30px'
+        , width:'40px'}} onClick={()=>{props.toggles('success')}} ></button>
+        </div>
+        <div className="flex-display">
+          <button className="bg-warning rounded my-2 " style={{height:'30px'
+        , width:'40px'}} onClick={()=>{props.toggles('warning')}} ></button>
+        </div>
+        {/* <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'} my-2 mx-3`}>
+          <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={()=>{props.toggles('primary')}} />
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault " >{props.mode==='light'?'Enable DarkMode':'Enable LightMode'}</label>
+        </div> */}
+        
       </nav>
     </div>
   )
