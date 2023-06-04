@@ -266,19 +266,19 @@ export class News extends Component {
       loading: true,
       totalResults: this.totalResults,
       author: this.author,
+      page:1,
       publishedAt: this.publishedAt
 
     }
   }
   // category=this.props.category;
   // pageSize=this.props.pageSize;
-
   apikey=process.env.REACT_APP_NEWS_API;
 
-  async componentDidMount(props) {
+  async componentDidMount() {
 
 
-    const url = `https://newsapi.org/v2/top-headlines?country=in&page=${this.props.page}&category=${this.props.category}&pageSize=${this.props.pagesize}&apikey=${this.props.apikey}`
+    const url = `https://newsapi.org/v2/top-headlines?country=in&page=${this.state.page}&category=${this.props.category}&pageSize=${this.props.pagesize}&apikey=${this.props.apikey}`
 
     const api = await fetch(url);
     const data = await api.json()
@@ -288,33 +288,37 @@ export class News extends Component {
   }
 
   fetchMoreData = async () => {
-    this.setState({})
-    const url = `https://newsapi.org/v2/top-headlines?country=in&page=${this.props.page}&category=${this.props.category}&pageSize=${this.props.pagesize}&apikey=${this.props.apikey}`
+    this.setState({page:this.state.page+1});
+    const url = `https://newsapi.org/v2/top-headlines?country=in&page=${this.state.page+1}&category=${this.props.category}&pageSize=${this.props.pagesize}&apikey=${this.props.apikey}`
+    //  this.setState({page:this.state.page+1})
     const api = await fetch(url);
     const data = await api.json()
     console.log(data)
     this.setState({ articles: this.state.articles.concat(data.articles) })
-    this.page++;
   }
 
   render() {
     return (
       <div className='container'>
         <div>
+          <h2> This is News app</h2>
           <InfiniteScroll
+          
             dataLength={this.state.articles.length}
             next={this.fetchMoreData}
-            hasMore={this.state.articles.length !== this.state.totalResults}
+            hasMore={this.state.articles.length!== this.state.totalResults}
             loader={<h4>Loading...</h4>}
           >
             <div className="row" >
-              {this.state.articles.map((els) => (
-                <div className="col-md-3 " >
-                  <NewsItem title={els.title} desc={els.description} ImageUrl={els.urlToImage} newsUrl={els.url} publishedAt={els.publishedAt}
-                    author={els.author}></NewsItem>
-                </div>
+              {this.state.articles.map((els) => {
+                return  <div className="col-md-3 " >
+                <NewsItem title={els.title} desc={els.description} ImageUrl={els.urlToImage} newsUrl={els.url} publishedAt={els.publishedAt}
+                  author={els.author}></NewsItem>
+              </div>
+              })}
+                 
 
-              ))}
+             
             </div>
           </InfiniteScroll>
         </div>

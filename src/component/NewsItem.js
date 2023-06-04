@@ -7,7 +7,7 @@ export class NewsItem extends Component {
       
       <div>
         <div  className="card" >
-          <img src={ImageUrl} className="card-img-top" alt="..."/>
+          <img src={!ImageUrl?'Image NOt Found':ImageUrl} className="card-img-top" alt="..."/>
             <div  className="card-body">
               <h5  className="card-title">{title}</h5>
               <p  className="card-text">{desc}</p>

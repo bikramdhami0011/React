@@ -29,7 +29,7 @@ export class Nevbar extends Component {
           <NavLink className="nav-link"  to="/health" >health</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" aria-current="page" to="/science" >science</NavLink>
+          <NavLink className="nav-link"  to="/science" >science</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link"  to="/technology" >technology</NavLink>

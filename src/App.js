@@ -17,14 +17,14 @@ export default class App extends Component {
          </Nevbar>
          <div className="container">
          <Routes>
-           <Route path='/' element={<News pagesize='5' category='general'page='1'      apikey={this.apikey} />}/>
-           <Route path='/home' element={<News pagesize='5' category='general' page='1' apikey={this.apikey} />}/>
-            <Route path='/sport' element={<News  pagesize='5' category='sports' page='1' apikey={this.apikey} />}/>
-            <Route path='/business' element={<News pagesize='5' category='business'page='1'   apikey={this.apikey} />}/>
-            <Route path='/entertainment' element={<News  pagesize='5' category='entertainment' page='1'  apikey={this.apikey} />}/>
-            <Route path='/health' element={<News  pagesize='5' category='health' page='1'apikey={this.apikey}  />}/>
-            <Route path='/science' element={<News  pagesize='5' category='science'  page='1' apikey={this.apikey} />}/>
-            <Route path='/technology' element={<News  pagesize='5' category='technology' page='1'  apikey={this.apikey} />}/>
+           <Route exact path='/' element={<News key='/' pagesize='5' category='general'page='1'      apikey={this.apikey} />}/>
+           <Route exact path='/home' element={<News key='home' pagesize='5' category='general' page='1' apikey={this.apikey} />}/>
+            <Route exact path='/sport' element={<News key='sport'  pagesize='5' category='sports' page='1' apikey={this.apikey} />}/>
+            <Route exact path='/business' element={<News key='business' pagesize='5' category='business'page='1'   apikey={this.apikey} />}/>
+            <Route exact path='/entertainment' element={<News key='entertainment'  pagesize='5' category='entertainment' page='1'  apikey={this.apikey} />}/>
+            <Route exact path='/health' element={<News key='health'  pagesize='5' category='health' page='1'apikey={this.apikey}  />}/>
+            <Route exact path='/science' element={<News key='science' pagesize='5' category='science'  page='1' apikey={this.apikey} />}/>
+            <Route exact path='/technology' element={<News key='technology'  pagesize='5' category='technology' page='1'  apikey={this.apikey} />}/>
 
          </Routes>
          </div>
